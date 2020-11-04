@@ -5,7 +5,7 @@ toy project for studying node.js &amp; mysql
 
 ## how-to-do
 
-1. study for `node - mysql`
+1. study for `node - mysql` ⭕️
 
 - [🍏](https://www.inflearn.com/course/node-js-database/dashboard)
 
