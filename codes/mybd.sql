@@ -2,7 +2,7 @@ CREATE DATABASE midan;
 
 use midan;
 
-CREATE TABLE 'mydatabase' (
+CREATE TABLE 'mylogs' (
   'id' int(11) NOT NULL AUTO_INCREMENT,
   'title' varchar(100) NOT NULL,
   'description' text NOT NULL,
