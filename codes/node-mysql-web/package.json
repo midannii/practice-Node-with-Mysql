@@ -1,0 +1,14 @@
+{
+  "name": "mwmw",
+  "version": "1.0.0",
+  "description": "my practice with mysql-web (https://github.com/egoing/server_side_javascript_tutorials)",
+  "main": "app-mysql.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "midannii",
+  "license": "ISC",
+  "dependencies": {
+    "underscore": "^1.11.0"
+  }
+}

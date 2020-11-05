@@ -1,3 +1,6 @@
+
+ 해당 디렉토리에 `npm init` , `npm install underscore` 진행하였음 
+
 ## workflow
 
 get('topic/') : view.jade
