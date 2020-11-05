@@ -1,7 +1,7 @@
 var express = require('express');
 var bodyParser = require('body-parser');
 var app = express();
-app.locals.pretty = true;
+app.locals.pretty = true; // jade 코드를 예쁘게 보여줌
 app.set('view engine', 'jade');
 app.set('views', './views');
 app.use(express.static('public'));
@@ -37,7 +37,7 @@ app.get('/topic/:id/:mode', function(req, res){
   res.send(req.params.id+','+req.params.mode)
 })
 app.get('/template', function(req, res){
-  res.render('temp', {time:Date(), title:'Jade'});
+  res.render('temp', {time:Date(), title:'Jade'}); // jade file에서의 time, title 변수의 값 지정 
 })
 app.get('/', function(req, res){
     res.send('Hello home page');;
