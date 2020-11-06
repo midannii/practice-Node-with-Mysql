@@ -9,7 +9,9 @@
   "author": "midannii",
   "license": "ISC",
   "dependencies": {
+    "body-parser": "^1.19.0",
     "express": "^4.17.1",
+    "multer": "^1.4.2",
     "pug": "^3.0.0",
     "supervisor": "^0.12.0",
     "underscore": "^1.11.0"

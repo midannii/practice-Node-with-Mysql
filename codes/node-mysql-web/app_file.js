@@ -16,8 +16,8 @@ var app = express();
 app.use(bodyParser.urlencoded({ extended: false }));
 app.locals.pretty = true;
 app.use('/user', express.static('uploads'));
-app.set('views', './views_file');
-app.set('view engine', 'jade');
+app.set('views', './views_file'); // views_file 디렉토리에 해당 template file 둘 것임
+app.set('view engine', 'jade'); // 사용할 template 종류 알려줌 (jade)
 app.get('/upload', function(req, res){
   res.render('upload');
 });
@@ -55,7 +55,7 @@ app.get(['/topic', '/topic/:id'], function(req, res){
     }
   })
 });
-app.post('/topic', function(req, res){
+app.post('/topic', function(req, res){ // topic 에서부터 받은 파일들을 저장하기 위해 route 연결 
   var title = req.body.title;
   var description = req.body.description;
   fs.writeFile('data/'+title, description, function(err){
