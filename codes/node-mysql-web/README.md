@@ -1,5 +1,5 @@
 
- 해당 디렉토리에 `npm init` , `npm install underscore` , `npm install --save express ` 진행하였음
+ 해당 디렉토리에 `npm init` , `npm install underscore` , `npm install --save express` , `npm install pug --save` , `npm install --save supervisor` 진행하였음
 
 ## workflow
 
