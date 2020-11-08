@@ -43,7 +43,7 @@ app.get(['/topic', '/topic/:id'], function(req, res){ // :id는 바뀔 수 있�
     var id = req.params.id; // 만약 :name 이면, req.params.name
     if(id){
       // id값이 있을 때
-      fs.readFile('data/'+id, 'utf8', function(err, data){ // data 폴더에 id와 동일한 제목의 글 읽어오기 
+      fs.readFile('data/'+id, 'utf8', function(err, data){ // data 폴더에 id와 동일한 제목의 글 읽어오기
         if(err){
           console.log(err);
           res.status(500).send('Internal Server Error');
