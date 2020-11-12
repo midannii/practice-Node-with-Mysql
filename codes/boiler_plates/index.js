@@ -5,6 +5,9 @@ const mongoose = require('mongoose');
 const bodyParser = require("body-parser");
 const cookieParser = require("cookie-parser");
 
+
+const config = require("./config/key");
+
 // connect with mongoDB
 // https://www.youtube.com/watch?v=TTmfGULw0Uw&list=PL9a7QRYt5fqly7BrCxOS71BqLLb9OeXKd&index=2
 mongoose.connect('mongodb://localhost/my_database', {
