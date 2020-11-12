@@ -32,9 +32,33 @@ app.get('/', (req,res) =>{
 app.post('/api/users/register', (req,res)=> {
   const user = new User(req.body)
 
+  // 정보 저장 전에, password를 hash 과정 거쳐서 저장
   user.save((err, userData) => {
     if(err) return res.json({success: false, err});
     return res.status(200);
+  })
+});
+
+// login
+app.post('/api/user/login', (req, res) ==> {
+  // find the e-email
+  User.findOne({email: req.body.email}, (err, user) => {
+    if(!user)
+    return res.json({
+      loginSuccess:false, message: "wrong password"
+    })
+  })
+  // compare Password
+  user.comparePassword(req.body.password, (err, isMatch) => {
+    if (!isMatch){
+      return res.json({  loginSuccess:false, message: "wrong password"})
+    }
+  })
+  //generateToken
+  user.generateToken((err, user) => {
+    if(err) return res.status(400).send(err);
+    res.cookie("x_auth", user.tocken).status(200).json({
+      loginSuccess: true})
   })
 })
 

@@ -35,15 +35,15 @@ const userSchema = mongoose.Schema({
     }
 })
 
-
+// hash password before save
 userSchema.pre('save', function( next ) {
-    var user = this;
+    var user = this; // this 는 userSchema를 의미
 
     if(user.isModified('password')){
         // console.log('password changed')
-        bcrypt.genSalt(saltRounds, function(err, salt){
+        bcrypt.genSalt(saltRounds, function(err, salt){ //Salt 생성
             if(err) return next(err);
-
+            // 만든 salt로 hash 거침
             bcrypt.hash(user.password, salt, function(err, hash){
                 if(err) return next(err);
                 user.password = hash
@@ -64,8 +64,9 @@ userSchema.methods.comparePassword = function(plainPassword,cb){
 
 userSchema.methods.generateToken = function(cb) {
     var user = this;
-    console.log('user',user)
-    console.log('userSchema', userSchema)
+    console.log('user',user);
+    console.log('userSchema', userSchema);
+    // sign 
     var token =  jwt.sign(user._id.toHexString(),'secret')
     var oneHour = moment().add(1, 'hour').valueOf();
 
@@ -76,6 +77,7 @@ userSchema.methods.generateToken = function(cb) {
         cb(null, user);
     })
 }
+
 
 userSchema.statics.findByToken = function (token, cb) {
     var user = this;
