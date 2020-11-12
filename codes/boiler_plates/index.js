@@ -71,10 +71,18 @@ app.post('/api/user/login', (req, res) => {
     res.cookie("x_auth", user.tocken).status(200).json({
       loginSuccess: true});
   })
+});
+
+
+//logout
+app.get("/api/user/logout", auth, (req,res) =>{
+  User.findOneAndUpdate({_id: req.user._id}, {token: ""}, (err, doc) =>{
+    if(err) return res.json({'success':false, err})
+    return res.status(200).send({
+      success:true
+    })
+  })
 })
 
-app.get('/', (req,res) => {
-  res.send('hello world')
-});
 
 app.listen(5000);
