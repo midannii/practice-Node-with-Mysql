@@ -20,6 +20,11 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(cookieParser());
 
+// nodemon
+app.get('/', (req,res) =>{
+  res.json({"hello~": "Hi ~~~ midannii!"})
+})
+
 // add info with postman: https://www.youtube.com/watch?v=FW7MfF4RDjg&list=PL9a7QRYt5fqly7BrCxOS71BqLLb9OeXKd&index=6
 app.post('/api/users/register', (req,res)=> {
   const user = new User(req.body)
