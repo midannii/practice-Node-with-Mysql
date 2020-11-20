@@ -56,7 +56,7 @@ app.post('/api/user/login', (req, res) => {
   User.findOne({email: req.body.email}, (err, user) => {
     if(!user)
     return res.json({
-      loginSuccess:false, message: "wrong password"
+      loginSuccess:false, message: "No user matches"
     })
   })
   // compare Password

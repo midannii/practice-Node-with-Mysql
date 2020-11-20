@@ -30,6 +30,7 @@ const userSchema = mongoose.Schema({
     token : {
         type: String,
     },
+    // token 유효기간 
     tokenExp :{
         type: Number
     }
@@ -66,7 +67,7 @@ userSchema.methods.generateToken = function(cb) {
     var user = this;
     console.log('user',user);
     console.log('userSchema', userSchema);
-    // sign 
+    // sign
     var token =  jwt.sign(user._id.toHexString(),'secret')
     var oneHour = moment().add(1, 'hour').valueOf();
 
